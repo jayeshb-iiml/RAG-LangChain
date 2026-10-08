@@ -6,7 +6,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_groq import ChatGroq
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import FastEmbedEmbeddings
 from langchain_community.vectorstores import Chroma
 
 from ingest import build_vectorstore
@@ -14,7 +14,7 @@ from ingest import build_vectorstore
 load_dotenv()
 
 PERSIST_DIR = "vectorstore"
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 GROQ_MODEL = "llama-3.1-8b-instant"
 
 
@@ -31,7 +31,7 @@ def get_groq_api_key():
 @st.cache_resource
 def load_retriever():
     if os.path.isdir(PERSIST_DIR):
-        embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+        embeddings = FastEmbedEmbeddings(model_name=EMBEDDING_MODEL)
         store = Chroma(persist_directory=PERSIST_DIR, embedding_function=embeddings)
     else:
         store, _, _ = build_vectorstore()
