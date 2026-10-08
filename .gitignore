@@ -130,6 +130,9 @@ celerybeat.pid
 # Environments
 .env
 .venv
+
+# Vector store (rebuilt automatically on first run)
+vectorstore/
 env/
 venv/
 ENV/
