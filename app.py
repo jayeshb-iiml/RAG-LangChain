@@ -15,7 +15,7 @@ load_dotenv()
 
 PERSIST_DIR = "vectorstore"
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
-GROQ_MODEL = "llama-3.1-8b-instant"
+GROQ_MODEL = "openai/gpt-oss-20b"
 
 
 def get_groq_api_key():
