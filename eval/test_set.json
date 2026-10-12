@@ -1,0 +1,108 @@
+[
+  {
+    "id": "agent-builder-pattern",
+    "question": "What is the Agent Builder Pattern?",
+    "expected_facts": [
+      "lets non-technical users configure, deploy, and manage AI agents",
+      "no-code or low-code interface"
+    ],
+    "expect_abstain": false
+  },
+  {
+    "id": "trust-framework-principles",
+    "question": "What are the six principles of the Industrial Trust Design Framework?",
+    "expected_facts": [
+      "never hide uncertainty",
+      "graduated autonomy",
+      "human always wins"
+    ],
+    "expect_abstain": false
+  },
+  {
+    "id": "automation-bias",
+    "question": "What is automation bias and why is it a safety risk in industrial settings?",
+    "expected_facts": [
+      "over-rely on automated systems",
+      "accepting outputs without critical evaluation"
+    ],
+    "expect_abstain": false
+  },
+  {
+    "id": "autonomy-ratio-high",
+    "question": "What does an autonomy ratio above 90% mean for an agent product?",
+    "expected_facts": [
+      "only appropriate for most routine, fully validated task types",
+      "review whether adequate oversight is still occurring"
+    ],
+    "expect_abstain": false
+  },
+  {
+    "id": "ghost-text-pattern",
+    "question": "What is the Ghost Text Pattern?",
+    "expected_facts": [
+      "AI suggestions inline",
+      "pressing Tab",
+      "GitHub Copilot"
+    ],
+    "expect_abstain": false
+  },
+  {
+    "id": "four-layer-governance",
+    "question": "What are the four layers of the agent permissioning and governance architecture?",
+    "expected_facts": [
+      "platform layer",
+      "organization layer",
+      "agent layer",
+      "user layer"
+    ],
+    "expect_abstain": false
+  },
+  {
+    "id": "dau-fails",
+    "question": "Why does Daily Active Users (DAU) fail as a metric for agent products?",
+    "expected_facts": [
+      "novelty-driven exploration",
+      "not value delivery"
+    ],
+    "expect_abstain": false
+  },
+  {
+    "id": "task-vs-goal",
+    "question": "What is the difference between Task Execution Design and Goal Pursuit Design?",
+    "expected_facts": [
+      "specify the exact action",
+      "express the intent"
+    ],
+    "expect_abstain": false
+  },
+  {
+    "id": "partial-completion-message",
+    "question": "What should an agent say to the user when it fails partway through a task?",
+    "expected_facts": [
+      "completed N of M steps",
+      "couldn't complete"
+    ],
+    "expect_abstain": false
+  },
+  {
+    "id": "mobile-touch-targets",
+    "question": "What is the minimum touch target size for gloved operation on mobile industrial AI interfaces?",
+    "expected_facts": [
+      "48",
+      "px"
+    ],
+    "expect_abstain": false
+  },
+  {
+    "id": "out-of-scope-revenue",
+    "question": "What was the author's revenue target for Q3 2026?",
+    "expected_facts": [],
+    "expect_abstain": true
+  },
+  {
+    "id": "out-of-scope-weather",
+    "question": "What is the weather forecast for Pune this week?",
+    "expected_facts": [],
+    "expect_abstain": true
+  }
+]

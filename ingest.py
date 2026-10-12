@@ -11,8 +11,11 @@ EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 def build_vectorstore():
     loader = PyPDFLoader(DATA_PATH)
     documents = loader.load()
+    # Page 1 is the table of contents — pure navigation text with no answering
+    # value, which was crowding out real content in retrieval.
+    documents = [d for d in documents if d.metadata.get("page") != 1]
 
-    splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=100)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=200)
     chunks = splitter.split_documents(documents)
 
     embeddings = FastEmbedEmbeddings(model_name=EMBEDDING_MODEL)

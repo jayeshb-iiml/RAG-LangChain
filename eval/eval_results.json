@@ -1,0 +1,320 @@
+[
+  {
+    "id": "agent-builder-pattern",
+    "question": "What is the Agent Builder Pattern?",
+    "answer": "**The Agent Builder Pattern** is a design approach that gives non\u2011technical users a no\u2011code or low\u2011code way to create, deploy, and manage AI agents that fit their specific workflows.  \nIt separates what the user configures from what the platform handles:\n\n| What the User Configures | What the Platform Handles |\n|--------------------------|---------------------------|\n| **Identity & Purpose** \u2013 agent name, description, role in plain language | Translation of that description into system\u2011prompt instructions |\n| **Knowledge Sources** \u2013 which documents, databases, or data sources the agent can access | RAG corpus scoping, embedding, and retrieval pipeline |\n| **Tools & Actions** \u2013 what the agent can do (query systems, generate reports, send notifications) | Tool schema generation, API integration, and permission enforcement |\n| **Interaction Model** \u2013 how users interact (chat, workflow trigger, scheduled, event\u2011driven) | Conversation management, trigger handling, scheduling |\n| **Governance** \u2013 who can use it, approval requirements | Permission enforcement, guardrails, audit logging |\n\nThe pattern is meant to solve the enterprise AI problem that many organizations lack the engineering resources to build agents. By exposing only the essential configuration surface, the platform can enforce safety, governance, and performance while letting users build useful agents in minutes.",
+    "sources": [
+      13,
+      16,
+      15,
+      15,
+      4,
+      14
+    ],
+    "expect_abstain": false,
+    "keyword_check": {
+      "hits": [],
+      "total": 2,
+      "ratio": 0.0
+    },
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": null,
+      "reasoning": "The answer accurately restates the definition and the user\u2011vs\u2011platform responsibilities described in the context, directly answering the question."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "trust-framework-principles",
+    "question": "What are the six principles of the Industrial Trust Design Framework?",
+    "answer": "**The six non\u2011negotiable principles of the Industrial Trust Design Framework**\n\n| # | Principle | Core idea |\n|---|-----------|-----------|\n| 1 | **Never Hide Uncertainty** | Every recommendation must carry a confidence score and the data that supports it; no recommendation can be shown without its evidentiary foundation. |\n| 2 | **Calibration Before Reliance** | Operators must first complete a mandatory calibration experience that exposes them to both successful and sub\u2011optimal AI outcomes, building an accurate mental model before they use the system. |\n| 3 | **Graduated Autonomy** | Start with full operator oversight. Only reduce oversight after the operator consistently demonstrates appropriate judgment across many interactions. |\n| 4 | **Failure Transparency** | When the AI is wrong, it must acknowledge the mistake clearly and quickly, provide low\u2011friction error reporting, and show operators the relevant history\u2014including cases where they correctly overrode the AI. |\n| 5 | **Human Always Wins** | The operator\u2019s decision always overrides the AI with no friction. The AI may ask \u201cAre you sure?\u201d once, but it must execute the operator\u2019s choice and never require justification for an override. |\n| 6 | **Audit Visibility** | Every operator can view the full interaction history: what the AI recommended, what the operator decided, and what actually happened. This transparency builds confidence that the system is a fair partner. |\n\nThese six principles form the core of the Industrial Trust Design Framework, ensuring that trust is built through design rather than added as a single feature.",
+    "sources": [
+      12,
+      26,
+      9,
+      26,
+      11,
+      0
+    ],
+    "expect_abstain": false,
+    "keyword_check": {
+      "hits": [
+        "never hide uncertainty",
+        "graduated autonomy",
+        "human always wins"
+      ],
+      "total": 3,
+      "ratio": 1.0
+    },
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": null,
+      "reasoning": "The answer lists each of the six principles exactly as described in the retrieved context, and directly addresses the question about the Industrial Trust Design Framework."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "automation-bias",
+    "question": "What is automation bias and why is it a safety risk in industrial settings?",
+    "answer": "**Automation bias** is the well\u2011documented tendency for people to over\u2011rely on automated systems\u2014accepting the system\u2019s outputs without critically evaluating them, especially when they\u2019re under time pressure.  \n\nIn industrial settings this is a safety risk because:\n\n* Operators may follow an AI\u2019s dosing or operational recommendation without checking the underlying data or evidence.  \n* The consequence of an incorrect recommendation can be a process upset or a safety incident, not just a lost work hour.  \n* The high\u2011cognitive\u2011load, time\u2011critical environment of the plant makes it easy for operators to accept the first answer they see, amplifying the risk.  \n\nProduct design must actively counteract automation bias by surfacing confidence indicators, requiring explicit confirmation for safety\u2011adjacent actions, and forcing users to engage with evidence before approving high\u2011stakes decisions.",
+    "sources": [
+      10,
+      26,
+      23,
+      22,
+      23,
+      22
+    ],
+    "expect_abstain": false,
+    "keyword_check": {
+      "hits": [],
+      "total": 2,
+      "ratio": 0.0
+    },
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": false,
+      "reasoning": "The answer\u2019s definition of automation bias and its safety implications for industrial operators match the descriptions in the retrieved passages, and it directly addresses the question."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "autonomy-ratio-high",
+    "question": "What does an autonomy ratio above 90% mean for an agent product?",
+    "answer": "I\u2019m sorry, but the provided context does not specify what an autonomy ratio above 90\u202f% indicates.",
+    "sources": [
+      26,
+      22,
+      20,
+      22,
+      21,
+      2
+    ],
+    "expect_abstain": false,
+    "keyword_check": {
+      "hits": [],
+      "total": 2,
+      "ratio": 0.0
+    },
+    "judge": {
+      "faithfulness": 1,
+      "relevance": 1,
+      "correctly_abstained": false,
+      "reasoning": "The answer incorrectly claims the context lacks any information about autonomy ratio meaning, while the context does describe autonomy ratio ranges and their interpretations, making the response unfaithful and not relevant to the question."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "ghost-text-pattern",
+    "question": "What is the Ghost Text Pattern?",
+    "answer": "**Ghost Text Pattern**\n\nGhost text is an AI\u2011native UI pattern that shows a lightweight, inline suggestion directly ahead of the cursor. The suggestion is rendered in a lighter gray style so it appears \u201cghost\u2011like.\u201d  \n\n* **Acceptance** \u2013 The user can accept the suggestion with a single keystroke (e.g., pressing **Tab**).  \n* **Rejection** \u2013 If the user continues typing, the suggestion is ignored.  \n\nThis pattern keeps cognitive load low: one keystroke accepts, no action ignores. It is used in contexts such as:\n\n* Completing maintenance log entries  \n* Recommending parameter values in report fields  \n* Auto\u2011filling shift notes based on sensor data  \n\nThe Ghost Text Pattern is the design behind popular tools like GitHub Copilot and Notion AI.",
+    "sources": [
+      17,
+      17,
+      18,
+      11,
+      10,
+      24
+    ],
+    "expect_abstain": false,
+    "keyword_check": {
+      "hits": [
+        "GitHub Copilot"
+      ],
+      "total": 3,
+      "ratio": 0.3333333333333333
+    },
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": null,
+      "reasoning": "The answer\u2019s description of the Ghost Text Pattern matches the context\u2019s details about inline gray suggestions, acceptance via Tab, rejection by typing, low cognitive load, and example use cases."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "four-layer-governance",
+    "question": "What are the four layers of the agent permissioning and governance architecture?",
+    "answer": "The four layers of the agent permissioning and governance architecture are:\n\n| Layer | Who Controls It | What It Governs |\n|-------|-----------------|-----------------|\n| **Platform Layer** | Platform team (platform\u2011defined) | Absolute limits \u2013 no process\u2011control actions, mandatory audit logging, mandatory guardrails |\n| **Organization Layer** | Customer IT/security admin | Which data sources are available, which tools can be enabled, which roles can build agents |\n| **Agent Layer** | Operator or engineer who built the agent | Scope within the enabled options: specific sources, specific tools, interaction model |\n| **User Layer** | Operator using the agent (end user) | Cannot exceed the agent creator\u2019s permissions; personal preferences within settings |\n\nThese layers collectively define who can set what permissions and how those permissions are enforced.",
+    "sources": [
+      15,
+      21,
+      14,
+      15,
+      26,
+      13
+    ],
+    "expect_abstain": false,
+    "keyword_check": {
+      "hits": [
+        "platform layer",
+        "organization layer",
+        "agent layer",
+        "user layer"
+      ],
+      "total": 4,
+      "ratio": 1.0
+    },
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": null,
+      "reasoning": "The answer directly lists the four layers and their control/governance details exactly as described in the retrieved context, fully addressing the question."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "dau-fails",
+    "question": "Why does Daily Active Users (DAU) fail as a metric for agent products?",
+    "answer": "Daily Active Users (DAU) fails for agent products because a high DAU can simply indicate that users are exploring or playing with the agent out of curiosity, rather than actually receiving value from it. DAU measures activity, not whether the agent is delivering useful, trusted, or efficient outcomes. In other words, it can inflate usage numbers without reflecting real value delivery or user satisfaction.",
+    "sources": [
+      20,
+      22,
+      26,
+      21,
+      21,
+      20
+    ],
+    "expect_abstain": false,
+    "keyword_check": {
+      "hits": [],
+      "total": 2,
+      "ratio": 0.0
+    },
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": null,
+      "reasoning": "The answer correctly reflects the context stating that high DAU may reflect novelty-driven exploration rather than value delivery, which is why DAU is a poor metric for agent products."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "task-vs-goal",
+    "question": "What is the difference between Task Execution Design and Goal Pursuit Design?",
+    "answer": "**Task Execution Design vs. Goal Pursuit Design**\n\n| Aspect | Task Execution Design | Goal Pursuit Design |\n|--------|-----------------------|---------------------|\n| **User input** | The user specifies an exact action (e.g., \u201cSort by date\u201d). | The user expresses an intent or desired outcome (e.g., \u201cShow me the most urgent items\u201d). |\n| **System response** | Executes the specified action deterministically. | Interprets the intent, determines an approach, executes it, and explains the outcome. |\n| **Error handling** | If the input is invalid, the user must fix it (\u201cInvalid input\u201d). | The system may interpret the input as something else and ask for confirmation (\u201cI interpreted this as X \u2014 is that right?\u201d). |\n| **Collaborative clarification** | Not part of the flow; the user must correct errors. | The system engages in clarification dialogue to refine the goal. |\n| **Workflow** | The user defines the steps to be taken. | The user defines the desired outcome; the system proposes the path to achieve it. |\n| **Interface primitives** | Traditional UI elements: buttons, forms, dropdowns. | AI\u2011native UI: natural\u2011language prompts, approval flows, progressive disclosure. |\n\nIn short, **Task Execution Design** is a deterministic, command\u2011based interaction where the user tells the system exactly what to do. **Goal Pursuit Design** is a collaborative, intent\u2011driven interaction where the user states what they want to achieve, and the system figures out how to get there, asking for clarification and explaining its reasoning.",
+    "sources": [
+      5,
+      8,
+      4,
+      23,
+      26,
+      17
+    ],
+    "expect_abstain": false,
+    "keyword_check": {
+      "hits": [],
+      "total": 2,
+      "ratio": 0.0
+    },
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": false,
+      "reasoning": "The answer reproduces the differences between Task Execution Design and Goal Pursuit Design exactly as presented in the context table, covering each dimension accurately and directly addressing the question."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "partial-completion-message",
+    "question": "What should an agent say to the user when it fails partway through a task?",
+    "answer": "When an agent stops partway through a task, it should communicate a **partial\u2011completion** message that:\n\n1. **States what was achieved** \u2013 \u201cI completed\u202fN\u202fof\u202fM steps. Here\u2019s what I found:\u202f[partial results].\u201d\n2. **Explains why the rest failed** \u2013 \u201cI couldn\u2019t complete\u202f[remaining steps] because\u202f[reason].\u201d\n\nThis lets the user see the useful work that was done, understand the cause of the interruption, and decide whether to accept the partial results, resume, or try a different approach.",
+    "sources": [
+      4,
+      8,
+      7,
+      7,
+      5,
+      4
+    ],
+    "expect_abstain": false,
+    "keyword_check": {
+      "hits": [],
+      "total": 2,
+      "ratio": 0.0
+    },
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": null,
+      "reasoning": "The answer directly mirrors the partial\u2011completion message pattern described in the context, matching the recommended wording and structure for failures occurring mid\u2011execution."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "mobile-touch-targets",
+    "question": "What is the minimum touch target size for gloved operation on mobile industrial AI interfaces?",
+    "answer": "The minimum touch\u2011target size for gloved operation on mobile industrial AI interfaces is **48\u202f\u00d7\u202f48\u202fpx**.",
+    "sources": [
+      24,
+      25,
+      23,
+      23,
+      25,
+      26
+    ],
+    "expect_abstain": false,
+    "keyword_check": {
+      "hits": [
+        "48",
+        "px"
+      ],
+      "total": 2,
+      "ratio": 1.0
+    },
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": null,
+      "reasoning": "The retrieved text specifies a 48x48\u202fpx minimum touch target for gloved operation, directly supporting the answer."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "out-of-scope-revenue",
+    "question": "What was the author's revenue target for Q3 2026?",
+    "answer": "I don't know.",
+    "sources": [
+      20,
+      5,
+      8,
+      21,
+      22,
+      6
+    ],
+    "expect_abstain": true,
+    "keyword_check": null,
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": true,
+      "reasoning": "The context contains no information about any revenue target, so stating 'I don't know' is faithful and directly addresses the question by correctly abstaining."
+    },
+    "judge_error": null
+  },
+  {
+    "id": "out-of-scope-weather",
+    "question": "What is the weather forecast for Pune this week?",
+    "answer": "I don\u2019t know.",
+    "sources": [
+      25,
+      24,
+      18,
+      10,
+      23,
+      24
+    ],
+    "expect_abstain": true,
+    "keyword_check": null,
+    "judge": {
+      "faithfulness": 5,
+      "relevance": 5,
+      "correctly_abstained": true,
+      "reasoning": "The answer correctly states lack of knowledge, which aligns with the context that provides no weather information, making it faithful and relevant, and it matches the expected abstention."
+    },
+    "judge_error": null
+  }
+]

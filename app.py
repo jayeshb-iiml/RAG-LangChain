@@ -2,20 +2,10 @@ import os
 
 import streamlit as st
 from dotenv import load_dotenv
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnablePassthrough
-from langchain_groq import ChatGroq
-from langchain_community.embeddings import FastEmbedEmbeddings
-from langchain_community.vectorstores import Chroma
 
-from ingest import build_vectorstore
+from rag import PERSIST_DIR, build_chain, load_retriever
 
 load_dotenv()
-
-PERSIST_DIR = "vectorstore"
-EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
-GROQ_MODEL = "openai/gpt-oss-20b"
 
 
 def get_groq_api_key():
@@ -28,20 +18,6 @@ def get_groq_api_key():
         return None
 
 
-@st.cache_resource
-def load_retriever():
-    if os.path.isdir(PERSIST_DIR):
-        embeddings = FastEmbedEmbeddings(model_name=EMBEDDING_MODEL)
-        store = Chroma(persist_directory=PERSIST_DIR, embedding_function=embeddings)
-    else:
-        store, _, _ = build_vectorstore()
-    return store.as_retriever(search_kwargs={"k": 4})
-
-
-def format_docs(docs):
-    return "\n\n".join(f"[p.{d.metadata.get('page', '?')}] {d.page_content}" for d in docs)
-
-
 st.title("AI PM Bible — Agentic Product Design")
 st.caption("Retrieval-augmented Q&A over Part VI of the AI PM Bible, running on free hosted inference.")
 
@@ -51,29 +27,9 @@ if not groq_api_key:
     st.stop()
 
 with st.spinner("Loading index..." if os.path.isdir(PERSIST_DIR) else "Building index (first run)..."):
-    retriever = load_retriever()
+    retriever = st.cache_resource(load_retriever)()
 
-prompt = ChatPromptTemplate.from_messages(
-    [
-        (
-            "system",
-            "You answer questions using only the context below, drawn from the AI PM Bible. "
-            "If the context doesn't contain the answer, say you don't know instead of guessing.\n\n"
-            "Context:\n{context}",
-        ),
-        ("user", "{question}"),
-    ]
-)
-
-llm = ChatGroq(model=GROQ_MODEL, api_key=groq_api_key, temperature=0)
-output_parser = StrOutputParser()
-
-chain = (
-    {"context": retriever | format_docs, "question": RunnablePassthrough()}
-    | prompt
-    | llm
-    | output_parser
-)
+chain = build_chain(retriever, groq_api_key)
 
 question = st.text_input("Ask a question about agentic product design")
 
